@@ -1,0 +1,46 @@
+
+<head th:replace="~{layoutBase :: head}">
+</head>
+
+<body>
+
+
+<div th:replace="~{layoutBase :: navbar}"></div>
+
+<div class="container mb-2">
+    <h1>Projetos</h1>
+    <table class="table table-light">
+        <tr class="table-dark">
+            <th></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data de Inicio</th>
+            <th scope="col">Data Previsão do Término</th>
+<!--            <th scope="col">Data Real para Término</th>-->
+            <th scope="col">Orçamento Total</th>
+            <th scope="col">Status do Projeto</th>
+            <th scope="col"></th>
+        </tr>
+
+        <tr th:each="func : ${ProjectResponse}">
+            <th scope="row"></th>
+            <td><span th:text="${func.nome}"></span></td>
+            <td><span th:text="${func.description}"></span></td>
+            <td><span th:text="${func.dataInicio}"></span></td>
+            <td><span th:text="${func.dataPrevisaoTermino}"></span></td>
+<!--            <td><span th:text="${func.dataRealTermino}"></span></td>-->
+            <td>R$<span th:text="${func.orcamento}"></span></td>
+            <td><span th:text="${func.statusProject}"></span></td>
+            <td class="buttons "><a th:href="@{form/{id}(id=${func.id})}"
+                                    th:method="get" class="btn btn-warning"><i class="bi bi-pencil"></i></a>
+                <a th:href="@{delete/{id}(id=${func.id})}" th:method="delete"
+                   class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+        </tr>
+    </table>
+
+    <a href="/form"><button class="btn btn-dark">Adicionar
+        Projeto</button></a>
+</div>
+</body>
+
+</html>
