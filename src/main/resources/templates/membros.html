@@ -1,0 +1,58 @@
+
+<head th:replace="~{layoutBase :: head}">
+</head>
+
+<body>
+
+
+<div th:replace="~{layoutBase :: navbar}"></div>
+
+<div class="container mb-2">
+    <h1>Adicionar pessoas como membros do Projeto</h1>
+
+<!--    <div class="container">-->
+<!--        <form action="#" th:object="${ProjectRequest}" th:action="@{/add}" method="post">-->
+
+<!--            <div th:replace="~{layoutBase :: form-memb}"></div>-->
+
+<!--            <div class="col-12 mt-2">-->
+<!--                <button type="submit" class="btn btn-dark">Cadastrar</button>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--    </div>-->
+
+
+    <form action="/consulta" method="post">
+        <label>Pesquisa por nome:</label>
+        <input name="inputConsulta">
+        <input type="submit" value="Buscar">
+    </form>
+    <table class="table table-light">
+        <tr class="table-dark">
+            <th></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Funcionário</th>
+            <th scope="col"></th>
+        </tr>
+
+        <tr th:each="func : ${PessoaEntity}">
+            <th scope="row"></th>
+            <td><span th:text="${func.nome}"></span></td>
+            <td><span th:text="${func.datanascimento}"></span></td>
+            <td><span th:text="${func.cpf}"></span></td>
+            <td><span th:text="${func.funcionario}"></span></td>
+            <td class="buttons ">
+
+                <a th:href="@{form/{id}(id=${func.id})}"
+                   th:method="get" class="btn btn-success"><i class="bi bi-person-add"></i></a>
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+
+</html>

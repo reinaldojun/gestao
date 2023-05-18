@@ -1,6 +1,7 @@
 package com.project.gestao.infrastructure.database.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -17,6 +18,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 @Builder
@@ -32,8 +34,9 @@ public class PessoaEntity {
 	@Column(name = "nome", length = 100)
 	private String nome;
 	
-	@Column	
-	private LocalDate datanascimento;
+	@Column
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date datanascimento;
 	
 	@Column(length = 14)
 	private String cpf;

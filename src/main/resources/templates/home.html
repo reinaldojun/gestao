@@ -31,10 +31,18 @@
 <!--            <td><span th:text="${func.dataRealTermino}"></span></td>-->
             <td>R$<span th:text="${func.orcamento}"></span></td>
             <td><span th:text="${func.statusProject}"></span></td>
-            <td class="buttons "><a th:href="@{form/{id}(id=${func.id})}"
+            <td class="buttons ">
+                <a th:href="@{form/{id}(id=${func.id})}"
                                     th:method="get" class="btn btn-warning"><i class="bi bi-pencil"></i></a>
+                <a th:href="@{addmembros/{id}(id=${func.id})}"
+                   th:method="get" class="btn btn-success"><i class="bi bi-person-add"></i></a>
+
                 <a th:href="@{delete/{id}(id=${func.id})}" th:method="delete"
-                   class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                   class="btn btn-danger"><i class="bi bi-trash"></i></a>
+
+                <a th:href="@{form/{id}(id=${func.id})}"
+                   th:method="get" class="btn btn-secondary"><i class="bi bi-three-dots-vertical"></i></a>
+            </td>
         </tr>
     </table>
 

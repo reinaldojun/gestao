@@ -46,6 +46,8 @@
                                     aria-current="page" href="/home">Home</a></li>
             <li class="nav-item"><a class="nav-link"
                                     href="/form">Adicionar Projeto</a></li>
+            <li class="nav-item"><a class="nav-link"
+                                    href="/formpessoa">Adicionar Pessoas</a></li>
         </ul>
     </nav>
 </div>
@@ -127,3 +129,45 @@
     </div>
 
 </div>
+
+<div th:fragment="form-pessoa">
+
+    <div class="form-group">
+        <input th:field="*{funcionario}" type="checkbox" class="form-check-input" id="inputFuncionario">
+        <label class="form-check-label" for="inputFuncionario">A Pessoa é Funcionário?</label>
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Nome</label>
+        <input class="form-control" type="text" th:field="*{nome}"  id="nome" placeholder="Nome" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inputDataNasc" class="form-label">Data de Nascimento</label> <input
+            th:field="*{datanascimento}" type="date" class="form-control" id="inputDataNasc" required>
+
+    </div>
+
+    <div class="form-group">
+        <label for="inputCpf" class="form-label">CPF</label> <input
+            th:field="*{cpf}" type="text" class="form-control" id="inputCpf" required>
+    </div>
+
+</div>
+
+<div th:fragment="form-memb">
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Nome</label>
+        <input class="form-control" type="text" th:field="*{nome}"  id="nome" placeholder="Nome" required>
+    </div>
+
+    <div class="form-group">
+        <label for="inputDescricao" class="form-label">Descrição</label> <input
+            th:field="*{description}" type="text" class="form-control" id="inputDescricao" required>
+
+    </div>
+
+
+</div>
+
